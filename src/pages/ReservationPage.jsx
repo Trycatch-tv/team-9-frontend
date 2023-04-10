@@ -10,10 +10,10 @@ export const ReservationPage = () => {
         sm={12}
         css={{ padding: "0.5rem 1rem", display: "flex", alignItems: "center" }}
       >
-        <Card isHoverable css={{ h: "fit-content", alignItems: "center" }}>
+        <Card isHoverable css={{ h: "fit-content", alignItems: "center", padding:"1rem" }}>
           <Text
             h1
-            size={60}
+            size={40}
             css={{
               textGradient: "45deg, $yellow600 -20%, $red600 100%",
             }}
