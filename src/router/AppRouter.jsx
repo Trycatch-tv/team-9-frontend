@@ -7,8 +7,8 @@ import { ReservationPage } from "../pages/ReservationPage";
 export const AppRouter = () => {
   return (
     <Routes>
-      <Route path="/reservation" element={<ReservationPage />} />
-      <Route path="/" element={<LoginPage />} />
+      <Route path="/" element={<ReservationPage />} />
+      <Route path="/login" element={<LoginPage />} />
       <Route path="/*" element={<NotFound404 />} />
     </Routes>
   );
