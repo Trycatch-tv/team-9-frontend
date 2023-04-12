@@ -1,7 +1,6 @@
 import { Button, Card, Grid, Input, Text } from "@nextui-org/react";
 import { Link } from "react-router-dom";
 
-import "react-day-picker/dist/style.css";
 
 export const ReservationPage = () => {
   return (
@@ -120,6 +119,9 @@ export const ReservationPage = () => {
       </Grid>
       <Grid xs={12} css={{ height: "130px" }}></Grid>
       <Card>
+        <Link to={"/"}>
+          <Text>Home</Text>
+        </Link>
         <Link to={"/login"}>
           <Text>Login</Text>
         </Link>
