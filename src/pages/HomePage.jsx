@@ -1,13 +1,19 @@
-import React from 'react'
-import "../styles/HomeStyle.css"
+import React from "react";
+import "../styles/HomeStyle.css";
+import { Button } from "@nextui-org/react";
+import { Link } from "react-router-dom";
 
-const HomePage = () => {
+export const HomePage = () => {
   return (
     <>
       <div className="banner">
         <h1>RESTAURANTE SABORES DE COLOMBIA</h1>
         <h3>¡Esperamos darle la bienvenida pronto a nuestro Restaurante!</h3>
-        <button>RESERVA AHORA</button>
+        <Link to={"/reservation"}>
+          <Button color="gradient" rounded bordered>
+            RESERVA AHORA
+          </Button>
+        </Link>
       </div>
       <div className="nosotros">
         <div className="nosotros_texto">
@@ -23,12 +29,8 @@ const HomePage = () => {
             deleitar sus sentidos y satisfacer su paladar
           </p>
         </div>
-        <div className="nosotros_imagen">
-          
-        </div>
+        <div className="nosotros_imagen"></div>
       </div>
     </>
-  )
-}
-
-export default HomePage;
+  );
+};
