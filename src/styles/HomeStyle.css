@@ -1,0 +1,52 @@
+body{ background: #E3D6D0;}
+
+*{ box-sizing: border-box; }
+
+
+.banner{
+    background-image: url("../assets/Home/img-3.jpg");
+    background-repeat: no-repeat;
+    background-position: 50% 50%;    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;  
+    height: 700px;
+    object-fit: cover;
+}
+
+.banner > h3{
+    margin-top: 70px;
+    line-height: 1;
+    color: #E3D6D0;
+    font-weight: 500;
+    
+}
+
+.nosotros{   
+    height: 600px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 100px;
+        
+    
+}
+.nosotros_texto{
+    height: 600px;
+    width: 50%;
+    margin-top: 220px;
+    margin-left: 50px;
+    color:#201B1D;
+}
+.nosotros_imagen{    
+    margin-left: 70px;
+    background-repeat: no-repeat;
+    background-image: url("../assets/Home/img2.jpg");
+    background-position: 50% 50%;
+    height: 500px;
+    width: 50%;
+}
+
