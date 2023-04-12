@@ -1,27 +1,9 @@
-import React, { useState } from "react";
-import { Button, Card, Dropdown, Grid, Input, Text } from "@nextui-org/react";
-import { DayPicker } from "react-day-picker";
-import { format } from "date-fns";
+import { Button, Card, Grid, Input, Text } from "@nextui-org/react";
+import { Link } from "react-router-dom";
 
 import "react-day-picker/dist/style.css";
 
 export const ReservationPage = () => {
-  const [selected, setSelected] = useState();
-
-  let footer = `Please pick a day.`;
-  if (selected) {
-    footer = <p>You picked {format(selected, "PP")}.</p>;
-  }
-
-  const [selectedTime, setSelectedTime] = useState(
-    new Set(["Hora de reserva"])
-  );
-
-  const selectedValue = React.useMemo(
-    () => Array.from(selectedTime).join(", ").replaceAll("_", " "),
-    [selectedTime]
-  );
-
   return (
     <Grid.Container gap={2} justify="center">
       <Grid
@@ -29,12 +11,15 @@ export const ReservationPage = () => {
         sm={12}
         css={{ padding: "0.5rem 1rem", display: "flex", alignItems: "center" }}
       >
-        <Card isHoverable css={{ h: "fit-content", alignItems: "center" }}>
+        <Card
+          isHoverable
+          css={{ h: "fit-content", alignItems: "center", padding: "1rem" }}
+        >
           <Text
             h1
-            size={60}
+            size={40}
             css={{
-              textGradient: "45deg, $blue600 -20%, $pink600 50%",
+              textGradient: "45deg, $yellow600 -20%, $red600 100%",
             }}
             weight="bold"
           >
@@ -43,7 +28,7 @@ export const ReservationPage = () => {
         </Card>
       </Grid>
       <Grid xs={12} sm={4}>
-        <Card isHoverable css={{ h: "170px", alignItems: "center" }}>
+        <Card isHoverable css={{ h: "160px", alignItems: "center" }}>
           <Text
             h3
             css={{
@@ -54,7 +39,7 @@ export const ReservationPage = () => {
           >
             1) ¿Cuantas personas seran?
           </Text>
-          <Card.Body>
+          <Card.Body css={{ padding: "0" }}>
             <Button.Group color="gradient" ghost>
               <Button>1</Button>
               <Button>2</Button>
@@ -69,8 +54,8 @@ export const ReservationPage = () => {
         </Card>
       </Grid>
       <Grid xs={12} sm={4}>
-        <Card isHoverable css={{ h: "170px", alignItems: "center" }}>
-          <Card.Body>
+        <Card isHoverable css={{ h: "160px", alignItems: "center" }}>
+          <Card.Body css={{ padding: "0" }}>
             <Text
               h3
               css={{
@@ -81,19 +66,13 @@ export const ReservationPage = () => {
             >
               2) ¿En que fecha sera la cena?
             </Text>
-            {/* <DayPicker
-              mode="single"
-              selected={selected}
-              onSelect={setSelected}
-              footer={footer}
-            /> */}
             <Input width="186px" type="date" />
           </Card.Body>
         </Card>
       </Grid>
       <Grid xs={12} sm={4}>
-        <Card isHoverable css={{ h: "170px", alignItems: "center" }}>
-          <Card.Body>
+        <Card isHoverable css={{ h: "160px", alignItems: "center" }}>
+          <Card.Body css={{ padding: "0" }}>
             <Text
               h3
               css={{
@@ -104,35 +83,7 @@ export const ReservationPage = () => {
             >
               3) ¿A que hora quieres la reserva?
             </Text>
-            <Dropdown>
-              <Dropdown.Button
-                flat
-                color="secondary"
-                css={{ tt: "capitalize" }}
-              >
-                {selectedValue}
-              </Dropdown.Button>
-              <Dropdown.Menu
-                aria-label="Single selection actions"
-                color="secondary"
-                disallowEmptySelection
-                selectionMode="single"
-                selectedKeys={selected}
-                onSelectionChange={setSelectedTime}
-              >
-                <Dropdown.Item key="5:00 pm">5:00 pm</Dropdown.Item>
-                <Dropdown.Item key="5:30 pm">5:30 pm</Dropdown.Item>
-                <Dropdown.Item key="6:00 pm">6:00 pm</Dropdown.Item>
-                <Dropdown.Item key="6:30 pm">6:30 pm</Dropdown.Item>
-                <Dropdown.Item key="7:00 pm">7:00 pm</Dropdown.Item>
-                <Dropdown.Item key="7:30 pm">7:30 pm</Dropdown.Item>
-                <Dropdown.Item key="8:00 pm">8:00 pm</Dropdown.Item>
-                <Dropdown.Item key="8:30 pm">8:30 pm</Dropdown.Item>
-                <Dropdown.Item key="9:00 pm">9:00 pm</Dropdown.Item>
-                <Dropdown.Item key="9:30 pm">9:30 pm</Dropdown.Item>
-                <Dropdown.Item key="10:00 pm">10:00 pm</Dropdown.Item>
-              </Dropdown.Menu>
-            </Dropdown>
+            <Input width="186px" type="time" />
           </Card.Body>
         </Card>
       </Grid>
@@ -147,11 +98,27 @@ export const ReservationPage = () => {
             justifyContent: "space-around",
           }}
         >
-          <Input bordered labelPlaceholder="Nombre" color="default" css={{width:"30%"}}/>
-          <Input bordered labelPlaceholder="Correo" color="default" css={{width:"30%"}}/>
-          <Input bordered labelPlaceholder="Telefono" color="default" css={{width:"30%"}}/>
+          <Input
+            bordered
+            labelPlaceholder="Nombre:"
+            color="default"
+            css={{ width: "30%" }}
+          />
+          <Input
+            bordered
+            labelPlaceholder="Correo:"
+            color="default"
+            css={{ width: "30%" }}
+          />
+          <Input
+            bordered
+            labelPlaceholder="Telefono:"
+            color="default"
+            css={{ width: "30%" }}
+          />
         </Card>
       </Grid>
+      <Grid xs={12} css={{ height: "130px" }}></Grid>
     </Grid.Container>
   );
 };

@@ -1,7 +1,6 @@
 import React from "react";
 import { Avatar, Button, Card, Col, Row, Text } from "@nextui-org/react";
 import reserverd from "../assets/persons.jpg";
-import iconCheck from "../assets/mobile-check.svg";
 import secureIcon from "../assets/secure-shield.png";
 
 export const Logincard = () => {
