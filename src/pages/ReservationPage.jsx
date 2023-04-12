@@ -119,6 +119,14 @@ export const ReservationPage = () => {
         </Card>
       </Grid>
       <Grid xs={12} css={{ height: "130px" }}></Grid>
+      <Card>
+        <Link to={"/login"}>
+          <Text>Login</Text>
+        </Link>
+        <Link to={"/aboud"}>
+          <Text>Aboud</Text>
+        </Link>
+      </Card>
     </Grid.Container>
   );
 };
