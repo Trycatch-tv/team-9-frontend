@@ -1,7 +1,7 @@
-import React from "react";
-import "../styles/HomeStyle.css";
 import { Button } from "@nextui-org/react";
 import { Link } from "react-router-dom";
+
+import "../styles/HomeStyle.css";
 
 export const HomePage = () => {
   return (
@@ -9,11 +9,9 @@ export const HomePage = () => {
       <div className="banner">
         <h1>RESTAURANTE SABORES DE COLOMBIA</h1>
         <h3>¡Esperamos darle la bienvenida pronto a nuestro Restaurante!</h3>
-        <Link to={"/reservation"}>
-          <Button color="gradient" rounded bordered>
-            RESERVA AHORA
-          </Button>
-        </Link>
+        <Button color="gradient" rounded bordered>
+          <Link to={"/reservation"}>RESERVA AHORA</Link>
+        </Button>
       </div>
       <div className="nosotros">
         <div className="nosotros_texto">
