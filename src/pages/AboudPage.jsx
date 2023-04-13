@@ -18,7 +18,6 @@ export const AboudPage = () => {
     >
       {data.map((info, index) => (
         <Grid
-          // xs={12}
           sm={4}
           md={3}
           css={{
