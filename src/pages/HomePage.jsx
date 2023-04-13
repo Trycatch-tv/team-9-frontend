@@ -5,16 +5,14 @@ import "../styles/HomeStyle.css";
 
 export const HomePage = () => {
   return (
-    <Container css={{ width: "100%", maxW: "1200px", marginTop:"1.5rem" }}>
+    <Container css={{ width: "100%", maxW: "1200px", marginTop: "1.5rem" }}>
       <Card shadow>
         <div className="banner">
           <h1>RESTAURANTE SABORES DE COLOMBIA</h1>
           <h3>¡Esperamos darle la bienvenida pronto a nuestro Restaurante!</h3>
-          <Link to={"/reservation"}>
-            <Button shadow bordered flat color="warning" auto>
-              RESERVA AHORA
-            </Button>
-          </Link>
+          <Button shadow bordered flat color="warning" auto>
+            <Link to={"/reservation"}>RESERVA AHORA</Link>
+          </Button>
         </div>
         <div className="nosotros">
           <div className="nosotros_texto">

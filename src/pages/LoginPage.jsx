@@ -21,7 +21,12 @@ export const LoginPage = () => {
     <Grid.Container gap={2}>
       <Card
         isHoverable
-        css={{ width: "350px", margin: "2rem auto", alignItems: "center" }}
+        css={{
+          width: "350px",
+          margin: "2rem auto",
+          alignItems: "center",
+          padding: "1.5rem",
+        }}
       >
         <Card.Header>
           <Text css={{ margin: "0 auto" }}>Iniciar sesión</Text>
