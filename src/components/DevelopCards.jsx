@@ -6,7 +6,6 @@ import {
   Image,
   Row,
   Spacer,
-  Container,
 } from "@nextui-org/react";
 import { Link } from "react-router-dom";
 import "../styles/general.css";

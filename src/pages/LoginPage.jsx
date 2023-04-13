@@ -7,7 +7,6 @@ export const LoginPage = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  console.log("Variable", import.meta.env.VITE_TEST_USERNAME);
 
   const handleLogin = () => {
     if (
