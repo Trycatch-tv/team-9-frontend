@@ -1,7 +1,11 @@
-import React from 'react'
+import React from "react";
+import { LogoutApp } from "../components/LogoutApp";
 
 export const AdminPage = () => {
   return (
-    <div>AdminPage</div>
-  )
-}
+    <div>
+      AdminPage
+      <LogoutApp />
+    </div>
+  );
+};

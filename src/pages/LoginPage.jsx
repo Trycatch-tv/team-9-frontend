@@ -1,26 +1,28 @@
+import { useContext, useState } from "react";
+// import { useNavigate } from "react-router-dom";
 import { Button, Card, Container, Grid, Input, Text } from "@nextui-org/react";
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../context/authContext";
 
 export const LoginPage = () => {
-  const navigate = useNavigate();
+  const { login } = useContext(AuthContext);
+
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-
   const handleLogin = () => {
-    if (
-      username === import.meta.env.VITE_TEST_USERNAME &&
-      password === import.meta.env.VITE_TEST_PASSWORD
-    ) {
-      navigate("/admin");
+    if (username === "admin" && password === "team9") {
+      login();
     } else {
       alert("Credenciales incorrectas. Inténtalo de nuevo.");
     }
   };
+
   return (
     <Grid.Container gap={2}>
-      <Card isHoverable css={{ width: "350px", margin: "0 auto", alignItems: "center" }}>
+      <Card
+        isHoverable
+        css={{ width: "350px", margin: "2rem auto", alignItems: "center" }}
+      >
         <Card.Header>
           <Text css={{ margin: "0 auto" }}>Iniciar sesión</Text>
         </Card.Header>
@@ -31,7 +33,6 @@ export const LoginPage = () => {
             clearable
             color="success"
             initialValue="getnextui"
-            // helperText="Excelent username"
             type="test"
             label="Username"
             placeholder="Enter your username"
@@ -45,7 +46,6 @@ export const LoginPage = () => {
             clearable
             color="warning"
             initialValue="123"
-            // helperText="Insecure password"
             type="password"
             label="Password"
             placeholder="Enter your password"
@@ -53,7 +53,7 @@ export const LoginPage = () => {
           />
         </Grid>
         <Grid>
-          <Button shadow color="primary" auto onClick={handleLogin}>
+          <Button shadow color="primary" auto onPress={handleLogin}>
             Iniciar sesión
           </Button>
         </Grid>
