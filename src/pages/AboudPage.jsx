@@ -9,10 +9,25 @@ export const AboudPage = () => {
       gap={2}
       alignItems="center"
       justify="center"
-      css={{ padding: "3rem" }}
+      css={{
+        padding: "1rem",
+        width: "100%",
+        maxW: "1200px",
+        margin: "0 auto",
+      }}
     >
       {data.map((info, index) => (
-        <Grid  xs={12} sm={4} md={3} lg={2} css={{ padding: "0" }}>
+        <Grid
+          // xs={12}
+          sm={4}
+          md={3}
+          css={{
+            padding: "0.5rem",
+            width: "100%",
+            margin: "0 auto",
+            maxW: "250px",
+          }}
+        >
           <DevelopCards key={index} {...info} />
         </Grid>
       ))}

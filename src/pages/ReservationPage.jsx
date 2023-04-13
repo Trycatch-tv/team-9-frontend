@@ -1,10 +1,13 @@
 import { Button, Card, Grid, Input, Text } from "@nextui-org/react";
 import { Link } from "react-router-dom";
 
-
 export const ReservationPage = () => {
   return (
-    <Grid.Container gap={2} justify="center">
+    <Grid.Container
+      gap={2}
+      justify="center"
+      css={{ width: "100%", maxW: "1200px", margin: "0 auto" }}
+    >
       <Grid
         xs={12}
         sm={12}
@@ -27,9 +30,12 @@ export const ReservationPage = () => {
         </Card>
       </Grid>
       <Grid xs={12} sm={4}>
-        <Card isHoverable css={{ h: "160px", alignItems: "center" }}>
+        <Card
+          isHoverable
+          css={{ h: "160px", alignItems: "center", padding: "1rem" }}
+        >
           <Text
-            h3
+            size={20}
             css={{
               textGradient: "45deg, $yellow600 -20%, $red600 100%",
               padding: "0.1rem 1rem",
@@ -53,10 +59,13 @@ export const ReservationPage = () => {
         </Card>
       </Grid>
       <Grid xs={12} sm={4}>
-        <Card isHoverable css={{ h: "160px", alignItems: "center" }}>
+        <Card
+          isHoverable
+          css={{ h: "160px", alignItems: "center", padding: "1rem" }}
+        >
           <Card.Body css={{ padding: "0" }}>
             <Text
-              h3
+              size={20}
               css={{
                 textGradient: "45deg, $yellow600 -20%, $red600 100%",
                 padding: "0.1rem 1rem",
@@ -70,17 +79,20 @@ export const ReservationPage = () => {
         </Card>
       </Grid>
       <Grid xs={12} sm={4}>
-        <Card isHoverable css={{ h: "160px", alignItems: "center" }}>
+        <Card
+          isHoverable
+          css={{ h: "160px", alignItems: "center", padding: "1rem" }}
+        >
           <Card.Body css={{ padding: "0" }}>
             <Text
-              h3
+              size={20}
               css={{
                 textGradient: "45deg, $yellow600 -20%, $red600 100%",
                 padding: "0.1rem 1rem",
               }}
               weight="bold"
             >
-              3) ¿A que hora quieres la reserva?
+              3) ¿A que hora te esperamos?
             </Text>
             <Input width="186px" type="time" />
           </Card.Body>

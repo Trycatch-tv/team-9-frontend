@@ -1,12 +1,5 @@
 import React from "react";
-import {
-  Card,
-  Grid,
-  Text,
-  Image,
-  Row,
-  Spacer,
-} from "@nextui-org/react";
+import { Card, Grid, Text, Image, Row, Spacer } from "@nextui-org/react";
 import { Link } from "react-router-dom";
 import "../styles/general.css";
 
@@ -17,7 +10,7 @@ export const DevelopCards = ({ ...info }) => {
 
   return (
     <>
-      <Grid css={{ padding: "2rem" }}>
+      <Grid css={{ padding: "1rem" }}>
         <Row
           justify="center"
           css={{
@@ -46,7 +39,6 @@ export const DevelopCards = ({ ...info }) => {
           isHoverable
           css={{
             w: "100%",
-            minWidth: "278px",
             alignContent: "center",
           }}
         >
@@ -55,9 +47,11 @@ export const DevelopCards = ({ ...info }) => {
           </Card.Header>
           <Card.Body
             css={{
+              display: "flex",
               textAlign: "center",
               justifyContent: "center",
               padding: "5px",
+              alignItems: "center",
             }}
           >
             <Text

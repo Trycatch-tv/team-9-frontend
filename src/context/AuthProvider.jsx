@@ -1,6 +1,8 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { AuthContext } from "./authContext";
 import { AppRouter } from "../router/AppRouter";
+import { NavBar } from "../components/NavBar";
+import { BrowserRouter } from "react-router-dom";
 
 const my_auth_app = "my_auth_app";
 
@@ -33,8 +35,11 @@ export const AuthProvider = () => {
   );
 
   return (
-    <AuthContext.Provider value={ value }>
-      <AppRouter />
+    <AuthContext.Provider value={value}>
+      <BrowserRouter>
+        <NavBar />
+        <AppRouter />
+      </BrowserRouter>
     </AuthContext.Provider>
   );
 };

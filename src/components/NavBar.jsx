@@ -1,9 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import '../styles/navBarStyles.css'
 
 export const NavBar = () => {
   return (
-    <>
             <nav className="navbar navbar-expand-lg bg-body-tertiary">
                 <div className="container-fluid">
                     <a className="navbar-brand" href="#">Restaurante Team 9</a>
@@ -28,7 +28,6 @@ export const NavBar = () => {
                     </div>
                 </div>
             </nav>
-        </>
   )
 }
 

@@ -12,7 +12,6 @@ import { PublicRouter } from "./PublicRouter";
 
 export const AppRouter = () => {
   return (
-    <BrowserRouter>
       <Routes>
         <Route path="/" element={<PublicRouter />}>
           <Route index element={<HomePage />} />
@@ -26,6 +25,5 @@ export const AppRouter = () => {
           <Route path="/private/logout" element={<LogoutApp />} />
         </Route>
       </Routes>
-    </BrowserRouter>
   );
 };
