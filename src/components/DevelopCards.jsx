@@ -35,7 +35,6 @@ export const DevelopCards = ({ ...info }) => {
           />
         </Row>
         <Card
-          isPressable
           isHoverable
           css={{
             w: "100%",
@@ -95,7 +94,9 @@ export const DevelopCards = ({ ...info }) => {
                   color: "rgb(80 84 86)",
                 }}
               >
-                <Link to={info.linkedin}>Linkedin</Link>
+                <Link to={info.linkedin} target="_blank">
+                  Linkedin
+                </Link>
               </Text>
             </Row>
           </Card.Footer>
