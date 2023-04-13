@@ -5,7 +5,10 @@ import secureIcon from "../assets/secure-shield.png";
 
 export const Logincard = () => {
   return (
-    <Card css={{ w: "100%", h: "400px", position: "relative" }} isHoverable>
+    <Card
+      css={{ w: "100%", h: "400px", position: "relative" }}
+      isHoverable
+    >
       <Card.Header css={{ position: "absolute", zIndex: 1, top: 5 }}>
         <Col></Col>
       </Card.Header>
