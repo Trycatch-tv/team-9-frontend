@@ -94,9 +94,11 @@ export const DevelopCards = ({ ...info }) => {
                   color: "rgb(80 84 86)",
                 }}
               >
-                <Link to={info.linkedin} target="_blank">
-                  Linkedin
-                </Link>
+                {info.linkedin ? (
+                  <Link to={info.linkedin} target="_blank">
+                    LinkedIn
+                  </Link>
+                ) : null}
               </Text>
             </Row>
           </Card.Footer>
