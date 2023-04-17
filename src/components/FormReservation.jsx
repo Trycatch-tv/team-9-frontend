@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Button, Input } from "@nextui-org/react";
-import "../styles/FormReservation.css";
+import "../styles/formReservation.css";
 
 export const FormReservation = () => {
   const [nombre, setNombre] = useState("");
@@ -11,7 +11,7 @@ export const FormReservation = () => {
     event.preventDefault();
     console.log(`Nombre: ${nombre}, Correo: ${correo}, Teléfono: ${telefono}`);
     // Aquí puedes agregar la lógica para enviar el formulario
-    
+
   };
 
   return (
