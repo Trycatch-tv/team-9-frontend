@@ -7,7 +7,7 @@ export const NavBar = () => {
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
       <div className="container-fluid">
         <Link className="navbar-brand" to="/">
-          Restaurante Team 9
+          Restaurante Sabores de Colombia
         </Link>
         <button
           className="navbar-toggler"
