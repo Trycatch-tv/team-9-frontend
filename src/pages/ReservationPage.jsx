@@ -1,7 +1,6 @@
 import { useState } from "react";
-import { Button, Card, Grid, Input, Text, Container } from "@nextui-org/react";
-import { Link } from "react-router-dom";
-import { FormReservation } from "../components/FormReservation";
+import { Button, Card, Grid, Input, Loading, Text } from "@nextui-org/react";
+import Swal from "sweetalert2";
 
 export const ReservationPage = () => {
   const [numOfPeople, setNumOfPeople] = useState("");
@@ -10,12 +9,57 @@ export const ReservationPage = () => {
   const [nombre, setNombre] = useState("");
   const [correo, setCorreo] = useState("");
   const [telefono, setTelefono] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [formErrors, setFormErrors] = useState({
+    numOfPeople: "",
+    date: "",
+    time: "",
+    nombre: "",
+    correo: "",
+    telefono: "",
+  });
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Aquí podrías enviar los datos a un servidor o hacer algo con ellos
     const nunOfPeopletoNumber = parseInt(numOfPeople, 10);
     const numOfTelefon = parseInt(telefono, 10);
+    setIsLoading(true);
+
+    const errors = {};
+
+   if (!numOfPeople) {
+     errors.numOfPeople = "Debe indicar el número de personas.";
+   } else if (parseInt(numOfPeople) < 1 || parseInt(numOfPeople) > 3) {
+     errors.numOfPeople = "El número de personas debe estar entre 1 y 3.";
+   }
+
+    if (!date) {
+      errors.date = "Debe indicar la fecha.";
+    }
+
+    if (!time) {
+      errors.time = "Debe indicar la hora.";
+    }
+
+    if (!nombre) {
+      errors.nombre = "Debe indicar su nombre.";
+    }
+
+    if (!correo) {
+      errors.correo = "Debe indicar su correo electrónico.";
+    }
+
+    if (!telefono) {
+      errors.telefono = "Debe indicar su número de teléfono.";
+    }
+
+    setFormErrors(errors);
+
+    if (Object.keys(errors).length > 0) {
+      setIsLoading(false);
+      return;
+    }
+
 
     const data = {
       nombre,
@@ -26,8 +70,6 @@ export const ReservationPage = () => {
       cantidad: nunOfPeopletoNumber,
     };
 
-    console.log(data);
-
     const requestOptions = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -36,9 +78,32 @@ export const ReservationPage = () => {
 
     fetch("https://back-node-team09.onrender.com/reservas", requestOptions)
       .then((response) => response.json())
-      .then((data) => console.log(data))
+      .then((data) => {
+        console.log(data);
+        setIsLoading(false);
+        if (!isLoading) {
+          Swal.fire({
+            title: "Datos enviados",
+            icon: "success",
+            timer: 2000, // Tiempo en milisegundos para cerrar la alerta
+            timerProgressBar: true,
+            didClose: () => {
+              // Función que se ejecutará después de cerrar la alerta
+              setIsLoading(false);
+            },
+          });
+        }
+        setNumOfPeople(""); // Limpiar el input de numOfPeople
+        setDate(""); // Limpiar el input de date
+        setTime(""); // Limpiar el input de time
+        setNombre(""); // Limpiar el input de nombre
+        setCorreo(""); // Limpiar el input de correo
+        setTelefono(""); // Limpiar el input de telefono
+      })
       .catch((error) => console.error(error));
   };
+
+  console.log(formErrors.numOfPeople)
 
   return (
     <form onSubmit={handleSubmit}>
@@ -145,6 +210,9 @@ export const ReservationPage = () => {
                 </Button>
               </Button.Group>
             </Card.Body>
+            <Text color="error" size="$xs">
+              {formErrors.numOfPeople}
+            </Text>
           </Card>
         </Grid>
         <Grid sm={4}>
@@ -174,6 +242,8 @@ export const ReservationPage = () => {
                 type="date"
                 value={date}
                 onChange={(e) => setDate(e.target.value)}
+                helperText={formErrors.date}
+                helperColor="error"
               />
             </Card.Body>
           </Card>
@@ -205,6 +275,8 @@ export const ReservationPage = () => {
                 type="time"
                 value={time}
                 onChange={(e) => setTime(e.target.value)}
+                helperText={formErrors.time}
+                helperColor="error"
               />
             </Card.Body>
           </Card>
@@ -229,6 +301,8 @@ export const ReservationPage = () => {
               labelPlaceholder="Nombre:"
               color="default"
               css={{ width: "95%" }}
+              helperText={formErrors.nombre}
+              helperColor="error"
             />
             <Input
               aria-label="Correo"
@@ -240,6 +314,8 @@ export const ReservationPage = () => {
               labelPlaceholder="Correo:"
               color="default"
               css={{ width: "95%" }}
+              helperText={formErrors.correo}
+              helperColor="error"
             />
             <Input
               aria-label="Telefono"
@@ -251,13 +327,19 @@ export const ReservationPage = () => {
               labelPlaceholder="Telefono:"
               color="default"
               css={{ width: "95%" }}
+              helperText={formErrors.telefono}
+              helperColor="error"
             />
-            <Button
-              type="submit"
-              css={{ width: "100%", margin: "auto", maxW: "50%" }}
-            >
-              Send
-            </Button>
+            {isLoading ? (
+              <Loading />
+            ) : (
+              <Button
+                type="submit"
+                css={{ width: "100%", margin: "auto", maxW: "50%" }}
+              >
+                Send
+              </Button>
+            )}
           </fieldset>
         </Card>
       </Grid.Container>
