@@ -6,7 +6,7 @@ import "../styles/HomeStyle.css";
 export const HomePage = () => {
   return (
     <Container css={{ width: "100%", maxW: "1200px", marginTop: "1.5rem" }}>
-      <Card shadow>
+      <Card>
         <div className="banner">
           <h1>RESTAURANTE SABORES DE COLOMBIA</h1>
           <h3>¡Esperamos darle la bienvenida pronto a nuestro Restaurante!</h3>
