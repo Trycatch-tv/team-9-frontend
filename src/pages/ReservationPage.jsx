@@ -83,7 +83,7 @@ export const ReservationPage = () => {
         setIsLoading(false);
         if (!isLoading) {
           Swal.fire({
-            title: "Datos enviados",
+            title: "Reserva exitosa!",
             icon: "success",
             timer: 2000, // Tiempo en milisegundos para cerrar la alerta
             timerProgressBar: true,
