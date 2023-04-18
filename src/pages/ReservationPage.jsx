@@ -7,7 +7,6 @@ export const ReservationPage = () => {
   const [numOfPeople, setNumOfPeople] = useState("");
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
-
   const [nombre, setNombre] = useState("");
   const [correo, setCorreo] = useState("");
   const [telefono, setTelefono] = useState("");
@@ -15,17 +14,19 @@ export const ReservationPage = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     // Aquí podrías enviar los datos a un servidor o hacer algo con ellos
+    const nunOfPeopletoNumber = parseInt(numOfPeople, 10);
+    const numOfTelefon = parseInt(telefono, 10);
 
     const data = {
-      id_table: "6438bf0e12a189b6a5c34f4a",
-      name_reserve_titular: nombre,
-      email_reserve_titular: correo,
-      phone_reserve_titular: telefono,
-      number_people_reserve: numOfPeople,
-      date_reserve: date,
-      time_reserve: time,
-      active_reserve: true,
+      nombre,
+      telefono: numOfTelefon,
+      correo,
+      fecha: date,
+      hora: time,
+      cantidad: nunOfPeopletoNumber,
     };
+
+    console.log(data);
 
     const requestOptions = {
       method: "POST",
@@ -33,12 +34,10 @@ export const ReservationPage = () => {
       body: JSON.stringify(data),
     };
 
-    fetch("https://back-team9.onrender.com/reservation/", requestOptions)
+    fetch("https://back-node-team09.onrender.com/reservas", requestOptions)
       .then((response) => response.json())
       .then((data) => console.log(data))
       .catch((error) => console.error(error));
-
-    
   };
 
   return (
