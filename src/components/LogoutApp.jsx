@@ -10,12 +10,10 @@ export const LogoutApp = () => {
   };
 
   return (
-    <div>
-      <Link>
-        <Button rounded bordered onPress={handleLogout}>
-          LogoutApp
-        </Button>
-      </Link>
-    </div>
+    <Link>
+      <Button rounded bordered onPress={handleLogout} css={{ maxW: "40%" }}>
+        LogoutApp
+      </Button>
+    </Link>
   );
 };
