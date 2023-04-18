@@ -29,7 +29,7 @@ export const ReservationPage = () => {
 
    if (!numOfPeople) {
      errors.numOfPeople = "Debe indicar el número de personas.";
-   } else if (parseInt(numOfPeople) < 1 || parseInt(numOfPeople) > 3) {
+   } else if (parseInt(numOfPeople) < 1 || parseInt(numOfPeople) > 8) {
      errors.numOfPeople = "El número de personas debe estar entre 1 y 3.";
    }
 
