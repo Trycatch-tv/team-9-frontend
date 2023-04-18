@@ -1,6 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { LogoutApp } from "../components/LogoutApp";
-import { Table, Text, Button, Container, Card } from "@nextui-org/react";
+import {
+  Table,
+  Text,
+  Button,
+  Container,
+  Card,
+  Loading,
+} from "@nextui-org/react";
 import Swal from "sweetalert2";
 
 import { IconButton } from "../components/IconButton";
@@ -8,15 +15,28 @@ import { DeleteIcon } from "../components/DeleteIcon";
 
 export const AdminPage = () => {
   const [reservas, setReservas] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  console.log(isLoading);
 
   const options = { year: "numeric", month: "short", day: "numeric" };
 
   const actualizarReservas = () => {
     fetch("https://back-node-team09.onrender.com/reservas")
       .then((response) => response.json())
-      .then((data) => setReservas(data))
-      .catch((error) => console.error(error));
+      .then((data) => {
+        setReservas(data);
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        console.error(error);
+        setIsLoading(false);
+      });
   };
+
+  useEffect(() => {
+    actualizarReservas();
+  }, []);
 
   const eliminarReserva = (id) => {
     Swal.fire({
@@ -67,10 +87,7 @@ export const AdminPage = () => {
       case "actions":
         return (
           <IconButton onClick={() => eliminarReserva(item._id)} color="error">
-            Delete
-            <IconButton>
               <DeleteIcon size={20} fill="#FF0080" />
-            </IconButton>
           </IconButton>
         );
       default:
@@ -86,16 +103,17 @@ export const AdminPage = () => {
         margin: "0 auto",
         padding: "1rem",
         gap: "1rem",
+        textAlign: "center",
       }}
     >
       <Text h3>Listado de Reservas</Text>
+      {(isLoading && <Loading />)}
       <Table
         aria-label="Example table with custom cells"
         css={{
           height: "auto",
           minWidth: "100%",
           overflow: "scroll",
-
         }}
         selectionMode="none"
       >
@@ -138,12 +156,11 @@ export const AdminPage = () => {
           justifyContent: "center",
         }}
       >
-          <fieldset>
-
-        <Button onPress={actualizarReservas} css={{ maxW: "40%" }}>
-          Actualizar
-        </Button>
-        <LogoutApp />
+        <fieldset>
+          <Button onPress={actualizarReservas} css={{ maxW: "40%" }}>
+            Actualizar
+          </Button>
+          <LogoutApp />
         </fieldset>
       </Card>
     </Container>
