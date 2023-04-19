@@ -21,8 +21,8 @@ fieldset {
   display: flex;
   align-items: center;
   width: 100%;
-  gap: 1rem;
-  margin: 0.5rem 0;
+  gap: 2rem;
+  margin: 1.5rem 0;
   padding: 0.5rem;
   justify-content: center;
 }
